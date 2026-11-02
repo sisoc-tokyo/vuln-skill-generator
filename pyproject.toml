@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vuln-skill"
+version = "0.1.0"
+description = "Turn CVE advisories into evidence-checked, local vulnerability investigation skills."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "Vuln-Skill contributors"}]
+keywords = ["CVE", "vulnerability", "AI", "incident-response", "security", "skill"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+    "License :: OSI Approved :: Apache Software License",
+]
+dependencies = [
+    "openai>=1.80,<4",
+    "pydantic>=2.8,<3",
+    "requests>=2.32,<3",
+    "beautifulsoup4>=4.12,<5",
+    "packaging>=24,<27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+vuln-skill = "vuln_skill.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools.package-data]
+vuln_skill = ["py.typed"]

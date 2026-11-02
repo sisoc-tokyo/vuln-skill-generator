@@ -1,0 +1,8 @@
+{
+  "settings": {
+    "wp_login_otp": true,
+    "login_only_otp": true,
+    "username_password_allowed": true,
+    "admin_otp_bypass": true
+  }
+}
